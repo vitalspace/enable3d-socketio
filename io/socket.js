@@ -12,7 +12,6 @@ const serverio = (io) => {
       z: 0,
       r: 0,
       playerId: socket.id,
-      team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue'
     }
 
     // send the players object to the new player
