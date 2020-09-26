@@ -22,7 +22,7 @@ const serverio = (io) => {
     socket.broadcast.emit('newPlayer', players[socket.id]);
 
     // when a player disconnects, remove them from our players object
-    socket.on('disconnect', function () {
+    socket.on('disconnect', () => {
       console.log('user disconnected: ', socket.id);
       delete players[socket.id];
       // emit a message to all players to remove this player
@@ -30,7 +30,7 @@ const serverio = (io) => {
     });
 
     // when a player moves, update the player data
-    socket.on('playerMovement', function (movementData) {
+    socket.on('playerMovement', (movementData) => {
       players[socket.id].x = movementData.x;
       players[socket.id].y = movementData.y;
       players[socket.id].z = movementData.z;
