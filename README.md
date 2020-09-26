@@ -18,6 +18,12 @@ npm start or mode dev npm run dev
 
 To see the game goto http://localhost:4000
 
+
+Video:
+
+https://youtu.be/wF_fLJG4R1o
+
+
 Postscript: I've been testing enable 3d + socket.io a bit. At the moment everything is going to perfection.
 
 Edit 9-26-2020
