@@ -16,5 +16,5 @@ Run the game
 
 npm start or mode dev npm run dev
 
-To see the game goto http:localhost:4000
+To see the game goto http://localhost:4000
 
