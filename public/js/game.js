@@ -27,41 +27,41 @@ class MainScene extends Scene3D {
     let playersObject = []
 
     // this.third.physics.debug.enable()
-    
+
     // Map
 
-     const map = async () => {
-      const object = await this.third.load.gltf('/assets/glb/mapOne.glb')
-      console.log(object)
-      const scene = object.scenes[0]
+    // const map = async () => {
+    //   const object = await this.third.load.gltf('/assets/glb/mapOne.glb')
+    //   console.log(object)
+    //   const scene = object.scenes[0]
 
-      const book = new ExtendedObject3D()
-      book.name = 'scene'
-      book.add(scene)
-      this.third.add.existing(book)
+    //   const book = new ExtendedObject3D()
+    //   book.name = 'scene'
+    //   book.add(scene)
+    //   this.third.add.existing(book)
 
-      book.traverse(child => {
+    //   book.traverse(child => {
 
-        if (child.isMesh) {
-          child.castShadow = child.receiveShadow = false
-          child.material.metalness = 0
-          child.material.roughness = 1
+    //     if (child.isMesh) {
+    //       child.castShadow = child.receiveShadow = false
+    //       child.material.metalness = 0
+    //       child.material.roughness = 1
 
-          if (child.name) {
-            this.third.physics.add.existing(child, {
-              shape: 'concave',
-              mass: 0,
-              collisionFlags: 1,
-              autoCenter: false,
-            })
-          }
-        }
-      })
-    }
+    //       if (child.name) {
+    //         this.third.physics.add.existing(child, {
+    //           shape: 'concave',
+    //           mass: 0,
+    //           collisionFlags: 1,
+    //           autoCenter: false,
+    //         })
+    //       }
+    //     }
+    //   })
+    // }
 
-    map()
-    
-    
+    // map()
+
+
     // add player
     const playerOne = (playerInfo) => {
       // <-- Settings for this player
