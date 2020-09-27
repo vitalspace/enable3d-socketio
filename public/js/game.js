@@ -28,6 +28,36 @@ class MainScene extends Scene3D {
 
     // this.third.physics.debug.enable()
 
+    
+        // Map
+
+    const map = async () => {
+      const object = await this.third.load.gltf('/assets/glb/mapOne.glb')
+      this.scene = object.scenes[0]
+      const map = new ExtendedObject3D()
+      map.name = 'scene'
+      map.add(scene)
+      this.third.add.existing(this.scene)
+      map.traverse(e => {
+        if (e.isMesh) {
+          e.castShadow = e.receiveShadow = false
+          e.material.metalness = 0
+          e.material.roughness = 1
+          if (e.name) {
+            this.third.physics.add.existing(e, {
+              shape: 'concave',
+              mass: 0,
+              collisionFlags: 1,
+              autoCenter: false,
+            })
+          }
+        }
+      })
+    }
+
+    map()
+    
+    
     // add player
     const playerOne = (playerInfo) => {
       // <-- Settings for this player
