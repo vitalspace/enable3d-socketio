@@ -30,20 +30,25 @@ class MainScene extends Scene3D {
     
     // Map
 
-    const map = async () => {
+     const map = async () => {
       const object = await this.third.load.gltf('/assets/glb/mapOne.glb')
-      this.scene = object.scenes[0]
-      const map = new ExtendedObject3D()
-      map.name = 'scene'
-      map.add(scene)
-      this.third.add.existing(this.scene)
-      map.traverse(e => {
-        if (e.isMesh) {
-          e.castShadow = e.receiveShadow = false
-          e.material.metalness = 0
-          e.material.roughness = 1
-          if (e.name) {
-            this.third.physics.add.existing(e, {
+      console.log(object)
+      const scene = object.scenes[0]
+
+      const book = new ExtendedObject3D()
+      book.name = 'scene'
+      book.add(scene)
+      this.third.add.existing(book)
+
+      book.traverse(child => {
+
+        if (child.isMesh) {
+          child.castShadow = child.receiveShadow = false
+          child.material.metalness = 0
+          child.material.roughness = 1
+
+          if (child.name) {
+            this.third.physics.add.existing(child, {
               shape: 'concave',
               mass: 0,
               collisionFlags: 1,
@@ -54,7 +59,7 @@ class MainScene extends Scene3D {
       })
     }
 
-    //map()
+    map()
     
     
     // add player
