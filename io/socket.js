@@ -37,8 +37,6 @@ const serverio = (io) => {
       // emit a message to all players about the player that moved
       socket.broadcast.emit('playerMoved', players[socket.id]);
     });
-
-
   })
 }
 module.exports = { serverio }
