@@ -27,9 +27,8 @@ class MainScene extends Scene3D {
     let playersObject = []
 
     // this.third.physics.debug.enable()
-
     
-        // Map
+    // Map
 
     const map = async () => {
       const object = await this.third.load.gltf('/assets/glb/mapOne.glb')
@@ -55,7 +54,7 @@ class MainScene extends Scene3D {
       })
     }
 
-    map()
+    //map()
     
     
     // add player
